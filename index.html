@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquerymigrate.js"></script>
+    <script type="text/javascript" src="js/jqprint.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/print.css" rel="stylesheet" media="print"/>
+</head>
+<body>
+<div id="table1">
+    <div id="print1" class="breakpage">
+        <table>
+            <thead>
+            <tr>
+                <th>表头1</th>
+                <th>表头2</th>
+                <th>输入框</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1221</td>
+                <td>1221</td>
+                <td>1221</td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="table2" class="breakpage">
+    <div id="print2">
+        <table>
+            <thead>
+            <tr>
+                <th>表头1</th>
+                <th>表头2</th>
+                <th>输入框</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1221</td>
+                <td>1221</td>
+                <td>1221</td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="btn1" class="btn">打印table1</div>
+<div id="btn2" class="btn">打印table2</div>
+<div id="btn3" class="btn">打印table1和table2并且强制分页</div>
+</body>
+<script>
+$('#btn1').click(function () {
+    $('#print1').jqprint({
+        debug:false
+    })
+});
+$('#btn2').click(function () {
+    $('#print2').jqprint({
+        debug:false
+    })
+});
+$('#btn3').click(function () {
+    /*var $temp = $("<iframe class='mulitprint-box' id='mulit' style='position: absolute; width: 0px; height: 0px; left: -600px; top: -600px;'></iframe>");
+    $temp.html($('#print1').outer()+$('#print2').outer());
+    $temp.appendTo('body');*/
+
+    $('#print1,#print2').jqprint({
+        debug:false
+    })
+});
+</script>
+</html>
